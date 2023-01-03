@@ -1,8 +1,8 @@
 build:
-	hugo new site dist
+	hugo -s . -d dist/
 
 clean:
 	cd dist && rm -rf *
 
 post:
-	hugo new --title="$1" --name="$2"
+	hugo new posts/$(POST_NAME).md
