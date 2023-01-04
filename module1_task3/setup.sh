@@ -1,3 +1,3 @@
 #!/bin/bash
-sudo apt-get hugo && sudo apt install make hugo
+sudo apt-get update && sudo apt install make hugo
 make build
