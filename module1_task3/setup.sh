@@ -1,3 +1,3 @@
 #!/bin/bash
 sudo apt install hugo
-sudo install make
+sudo apt install make
