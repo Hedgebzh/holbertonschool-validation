@@ -2,7 +2,7 @@ build:
 	hugo -s . -d dist/
 
 clean:
-	cd dist && rm -rf *
+	rm -rf dist/
 
 post:
 	hugo new posts/$(POST_NAME).md
