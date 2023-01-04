@@ -1,4 +1,4 @@
-## Prequisites
+## Prerequisites
 
 ## Lifecycle
 build: Build your website structure
