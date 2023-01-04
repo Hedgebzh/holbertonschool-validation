@@ -1,10 +1,10 @@
-build: ##build test
+build: ##Build your website structure
 	hugo -s . -d dist/
 
-clean: ##clean test
+clean: ##Clean content of dist directory
 	cd dist && rm -rf *
 
-post: ##post test
+post: ##Create new post for your website
 	hugo new posts/$(POST_NAME).md
 	sed -i 's/title: .*/title:"$(POST_TITLE)"/' content/posts/$(POST_NAME).md
 
