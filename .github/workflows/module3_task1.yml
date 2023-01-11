@@ -1,5 +1,5 @@
 ---
-name: module3_task0
+name: module3_task1
 on:
   push:
     branches:
@@ -9,18 +9,21 @@ on:
 
 jobs:
   module3_task0:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: cd in to correct directory
+      - name: lint
         run: |
-          cd module3_task0
-          make help
-      - name : setup for install tools
+          cd module3_task1/
+          make lint
+      - name: Setup Hugo
         run: |
-          sudo./setup.sh
-      - name : build
+          cd module3_task1/
+          sudo ./setup.sh
+      - name: build
+        run: |
+          cd module3_task1/
           make build
       - name: post
         run: |
