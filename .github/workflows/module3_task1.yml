@@ -17,3 +17,7 @@ jobs:
         run: |
           cd module3_task0
           make help
+      - name : setup & build
+        run: |
+          ./setup.sh
+          make build
