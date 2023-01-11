@@ -1,5 +1,5 @@
 build: ##Build your website structure
-	hugo -s . -d dist/
+	hugo
 
 clean: ##Clean content of dist directory
 	cd dist && rm -rf *
@@ -19,6 +19,9 @@ unit-tests: ## Test for makes command
 	make POST_TITLE='TEST' POST_NAME='this-is-a-test' post
 	make build
 	make clean
+
+validate: ## check current directory
+	pwd
 
 help: ##Show this help usage
 	cat README.md
