@@ -22,3 +22,15 @@ jobs:
           sudo./setup.sh
       - name : build
           make build
+      - name: post
+        run: |
+          cd module3_task1/
+          make POST_TITLE="Test Title" POST_NAME="Test-name" post
+      - name: Integration tests
+        run: |
+          cd module3_task1/
+          make integration-tests
+      - name: clean
+        run: |
+          cd module3_task1/
+          make clean
