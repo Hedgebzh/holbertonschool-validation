@@ -1,28 +1,31 @@
-build: ##Build your website structure
-	hugo
+# Define variables
+Publish=hugo
+SHELLCHECK=shellcheck
 
-clean: ##Clean content of dist directory
-	cd dist && rm -rf *
+build: ## Builds a new website
+	$(Publish)
 
-post: ##Create new post for your website
-	hugo new posts/$(POST_NAME).md
-	sed -i 's/title: .*/title:"$(POST_TITLE)"/' content/posts/$(POST_NAME).md
+clean: ## Remove all files from folder dist
+	rm -r dist/*
 
-lint: ## Shellcheck
-	$(shellcheck) setup.sh >/dev/null 2>&1 || echo "Lint Failed"
+post: ## Create new post and using the sed command to modify the contents of a file.
+	$(Publish) new posts/$(POST_NAME).md
+	sed -i 's/title: .*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md
 
-test: ## Server and check if dist present
+lint: ## shellcheck setup
+	$(SHELLCHECK) setup.sh >/dev/null 2>&1 || echo "Lint Failed"
+	
+integration-tests: ## server and check the localhost
 	hugo
 	ls dist/
-
-unit-tests: ## Test for makes command
+	
+unit-tests: ## Runs different makefile recipes
 	make POST_TITLE='TEST' POST_NAME='this-is-a-test' post
 	make build
 	make clean
 
-validate: ## check current directory
+validate: ## Tests dir
 	pwd
-
-help: ##Show this help usage
-	cat README.md
-
+		
+help: ## Display the list of targets and their usage.
+	cat Makefile | grep '##' | tr -d '##' | head -n -1
