@@ -28,6 +28,10 @@ unit-tests: ## unit tests
 
 validate: ## Tests dir
 	pwd
+	
+package: ## creates archive
+	make build
+	zip awesome-website.zip dist/
 
 help: ## display help
 	cat Makefile | grep '##' | tr -d '##' | head -n -1
