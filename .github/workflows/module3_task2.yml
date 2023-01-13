@@ -12,14 +12,14 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: lint
-        run: |
-          cd module3_task2/
-          make lint
       - name: setup
         run: |
           cd module3_task2/
           sudo ./setup.sh
+       - name: lint
+        run: |
+          cd module3_task2/
+          make lint
       - name: build
         run: |
           cd module3_task2/
