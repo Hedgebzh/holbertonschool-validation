@@ -16,7 +16,7 @@ jobs:
         run: |
           cd module3_task2/
           sudo ./setup.sh
-       - name: lint
+      - name: lint
         run: |
           cd module3_task2/
           make lint
