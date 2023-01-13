@@ -29,6 +29,10 @@ jobs:
         run: |
           cd module3_task2/
           make POST_TITLE="Test" POST_NAME="Test" post
+      - name: clean
+        run: |
+          cd module3_task2/
+          make clean
       - name: tests
         run: |
           cd module3_task2/
@@ -36,10 +40,6 @@ jobs:
           make validate
           make unit-tests
           make package
-          make clean
-      - name: clean
-        run: |
-          cd module3_task2/
           make clean
       - name: archive build
         if: ${{ success()}}
