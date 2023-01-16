@@ -14,27 +14,27 @@ jobs:
         uses: actions/checkout@v3
       - name: setup
         run: |
-          cd module3_task2/
+          cd module3_task3/
           sudo ./setup.sh
       - name: lint
         run: |
-          cd module3_task2/
+          cd module3_task3/
           make lint
       - name: build
         run: |
-          cd module3_task2/
+          cd module3_task3/
           make build
       - name: post
         run: |
-          cd module3_task2/
+          cd module3_task3/
           make POST_TITLE="Test" POST_NAME="Test" post
       - name: clean
         run: |
-          cd module3_task2/
+          cd module3_task3/
           make clean
       - name: tests
         run: |
-          cd module3_task2/
+          cd module3_task3/
           make tests
           make validate
           make unit-tests
@@ -52,4 +52,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: upload-package
-          path: module3_task2/awesome-website.zip
+          path: module3_task3/awesome-website.zip
