@@ -28,10 +28,6 @@ jobs:
         run: |
           cd module3_task3/
           make POST_TITLE="Test" POST_NAME="Test" post
-      - name: clean
-        run: |
-          cd module3_task3/
-          make clean
       - name: tests
         run: |
           cd module3_task3/
