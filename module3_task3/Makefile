@@ -1,3 +1,5 @@
+SHELLCHECK=shellcheck
+
 build: ## build new website
 	hugo
 
