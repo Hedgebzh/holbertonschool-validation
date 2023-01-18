@@ -13,7 +13,7 @@ post: ## create new post
 lint: ## shellcheck setup
 	markdownlint README.md
 	markdownlint DEPLOY.md
-	$(shellcheck) setup.sh >/dev/null 2>&1 || echo "Lint Failed"
+	$(SHELLCHECK) setup.sh >/dev/null 2>&1 || echo "Lint Failed"
 
 markdownlint: ## updated to lint the files README.md and DEPLOY.md
 	markdownlint README.md
