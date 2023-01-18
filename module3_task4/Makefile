@@ -9,9 +9,8 @@ post: ## create new post
 	sed -i 's/title: .*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md
 
 lint: ## shellcheck setup
-	markdownlint README.md
-	markdownlint DEPLOY.md
-	$(SHELLCHECK) setup.sh >/dev/null 2>&1 || echo "Lint Failed"
+	yamllint "$(SHELLCHECK)" setup.sh >/dev/null 2>&1 || echo "Lint Failed"
+	markdownlint README.md DEPLOY.md
 
 markdownlint: ## updated to lint the files README.md and DEPLOY.md
 	markdownlint README.md
